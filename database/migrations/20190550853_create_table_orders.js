@@ -20,10 +20,7 @@ module.exports = {
                         allowNull: false,
                     },
                     note: {
-                        type: Sequelize.TEXT,
-                        validate: {
-                            notEmpty: true
-                        }
+                        type: Sequelize.TEXT
                     },
                     ship_id: {
                         allowNull: false,
