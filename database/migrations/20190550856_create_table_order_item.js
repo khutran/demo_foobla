@@ -25,7 +25,7 @@ module.exports = {
                             notEmpty: true
                         }
                     },
-                    quantify: {
+                    quantity: {
                         type: Sequelize.INTEGER,
                         allowNull: false
                     },
