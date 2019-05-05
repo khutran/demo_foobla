@@ -25,19 +25,15 @@ module.exports = {
                             notEmpty: true
                         }
                     },
-                    shipping_method: {
+                    shipping_id: {
                         allowNull: false,
-                        type: Sequelize.STRING
+                        type: Sequelize.INTEGER
                     },
                     shipping_address: {
                         allowNull: false,
                         type: Sequelize.STRING
                     },
                     amount: {
-                        allowNull: false,
-                        type: Sequelize.FLOAT
-                    },
-                    ship_price: {
                         allowNull: false,
                         type: Sequelize.FLOAT
                     },
@@ -59,15 +55,26 @@ module.exports = {
                     }
                 })
             ]).then(function () {
-                return queryInterface.addConstraint('orders', ['payment_method_id'], {
-                    type: 'FOREIGN KEY',
-                    references: {
-                        table: 'payment_methods',
-                        field: 'id'
-                    },
-                    onDelete: 'cascade',
-                    onUpdate: 'cascade'
-                });
+                return new Promise.all([
+                    queryInterface.addConstraint('orders', ['payment_method_id'], {
+                        type: 'FOREIGN KEY',
+                        references: {
+                            table: 'payment_methods',
+                            field: 'id'
+                        },
+                        onDelete: 'cascade',
+                        onUpdate: 'cascade'
+                    }),
+                    queryInterface.addConstraint('orders', ['shipping_id'], {
+                        type: 'FOREIGN KEY',
+                        references: {
+                            table: 'shipping',
+                            field: 'id'
+                        },
+                        onDelete: 'cascade',
+                        onUpdate: 'cascade'
+                    }),
+                ])
             });
         });
     },
