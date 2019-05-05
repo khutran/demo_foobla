@@ -25,7 +25,7 @@ module.exports = {
                             notEmpty: true
                         }
                     },
-                    shipping_id: {
+                    ship_id: {
                         allowNull: false,
                         type: Sequelize.INTEGER
                     },
@@ -55,7 +55,7 @@ module.exports = {
                     }
                 })
             ]).then(function () {
-                return new Promise.all([
+                return Promise.all([
                     queryInterface.addConstraint('orders', ['payment_method_id'], {
                         type: 'FOREIGN KEY',
                         references: {
@@ -65,10 +65,10 @@ module.exports = {
                         onDelete: 'cascade',
                         onUpdate: 'cascade'
                     }),
-                    queryInterface.addConstraint('orders', ['shipping_id'], {
+                    queryInterface.addConstraint('orders', ['ship_id'], {
                         type: 'FOREIGN KEY',
                         references: {
-                            table: 'shipping',
+                            table: 'ship',
                             field: 'id'
                         },
                         onDelete: 'cascade',
