@@ -292,6 +292,11 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
+"@nsilly/exceptions@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@nsilly/exceptions/-/exceptions-3.0.3.tgz#8fab140c4745effe813c320ff470f4ad1dbd611c"
+  integrity sha512-KRT+nwFxM0pH0N8kmxGzF7RpiwnaEiyuWm/g/G68Nd2n24Oy/lhJev2M6OBS5GklGA1kPixEgtM5+NPxoXe3gw==
+
 "@types/babel__core@^7.1.0":
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.1.tgz#ce9a9e5d92b7031421e1d0d74ae59f572ba48be6"

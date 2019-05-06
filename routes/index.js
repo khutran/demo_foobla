@@ -1,12 +1,10 @@
-import UserController from '../controllers/UserController';
+import user from './users';
+import order from './orders';
 
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
+router.use('/users', user);
+router.use('/orders', order);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import sequelize from '../config/sequelize';
 import _ from 'lodash';
+import Customer from './customers';
 
 
 const User = sequelize.define(
@@ -29,10 +30,10 @@ const User = sequelize.define(
   }
 );
 
-User.associate = function (model) {
-  User.hasOne(model.Customer);
-  User.hasOne(model.Payment);
-  User.belongsToMany(model.Order, { through: model.UserOrder });
-}
+// User.associate = model => {
+User.hasOne(Customer);
+// User.hasOne(model.payment);
+// User.belongsToMany(model.order, { through: model.user_orders });
+// }
 
 export default User;
