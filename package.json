@@ -6,7 +6,7 @@
     "start": "./node_modules/.bin/nodemon ./node_modules/.bin/babel-node ./bin/www",
     "migrate": "node_modules/.bin/sequelize db:migrate",
     "seed": "./node_modules/.bin/sequelize db:seed:all",
-    "build": "rimraf dist/ && rm -rf .env && cp .server/env.dev .env && ./node_modules/.bin/nodemon ./node_modules/.bin/babel-node ./bin/www"
+    "build": "rimraf dist/ && rm -rf .env && cp .server/env.dev .env && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,error_code.md,README.md"
   },
   "dependencies": {
     "@babel/runtime": "^7.2.0",
